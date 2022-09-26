@@ -1,0 +1,70 @@
+version: "3.9"
+services:
+  rabbitmq:
+    image: rabbitmq:3.7.2-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+  zipkin:
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+  eureka-service:
+    image: eureka-service
+    ports:
+      - "8761:8761"
+    restart: always
+  config-service:
+    image: config-service
+    ports:
+      - "8888:8888"
+    restart: always
+  api-gateway:
+    image: api-gateway
+    ports:
+      - "8080:8080"
+    restart: always
+  series-service:
+    image: series-service
+    ports:
+      - "8086:8086"
+    restart: always
+  movie-service:
+    image: movie-service
+    ports:
+      - "8082:8082"
+    restart: always
+  catalog-service:
+    image: catalog-service
+    ports:
+      - "8084:8084"
+    restart: always
+  mongodb:
+    image: mongo
+    container_name: "mongodb"
+    command: mongod --auth
+    environment:
+      - MONGO_INITDB_DATABASE=admin
+      - MONGO_INITDB_ROOT_USERNAME=rootuser
+      - MONGO_INITDB_ROOT_PASSWORD=rootpass
+    ports:
+      - "27017:27017"
+  mysql:
+    image: mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE=tp_final
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+      - MYSQL_ROOT_PASSWORD=pass
+  redis:
+    image: redis
+    ports:
+     - "6379:6379"
+      
+volumes:
+  data: { }
+networks:
+  default:
+    name: tp_final_network

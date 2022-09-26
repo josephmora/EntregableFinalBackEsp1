@@ -1,0 +1,10 @@
+com\digitalhouse\movieservice\domain\repositories\MovieRepository.class
+com\digitalhouse\movieservice\config\RedisConfiguration.class
+com\digitalhouse\movieservice\config\RabbitMQConsumerConfig.class
+com\digitalhouse\movieservice\config\RabbitTemplateConfig.class
+com\digitalhouse\movieservice\MovieServiceApplication.class
+com\digitalhouse\movieservice\domain\models\MovieInfo.class
+com\digitalhouse\movieservice\api\controller\MovieController.class
+com\digitalhouse\movieservice\domain\models\Movie.class
+com\digitalhouse\movieservice\util\RedisUtils.class
+com\digitalhouse\movieservice\api\service\MovieService.class
