@@ -39,4 +39,9 @@ public class MovieController {
     ResponseEntity<Movie> saveMovie(@RequestBody Movie movie) {
         return ResponseEntity.ok().body(service.saveMovie(movie));
     }
+    @PostMapping("saveRabbit")
+    public ResponseEntity<String> saveMovieRabbit(@RequestBody Movie movie) {
+        service.saveMovieRabbit(movie);
+        return ResponseEntity.ok("The serie was sent to the queue");
+    }
 }

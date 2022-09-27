@@ -27,7 +27,8 @@ public class CatalogController {
 
     @GetMapping("/{genre}")
     public ResponseEntity<List<MovieDTO>> getGenre(@PathVariable String genre) {
-        return movieService.findMovieByGenre(genre);
+
+        return ResponseEntity.ok().body(movieService.findMovieByGenre(genre));
     }
 
     @GetMapping("/withErrors/{genre}")
@@ -37,7 +38,12 @@ public class CatalogController {
 
     @PostMapping("/save")
     public ResponseEntity<String> saveMovie(@RequestBody MovieDTO movieDTO) {
-        movieService.saveMovie(movieDTO);
-        return ResponseEntity.ok("The movie was sent to the queue");
+        movieService.SaveMovie(movieDTO);
+        return ResponseEntity.ok("Se guardo una pelicula");
     }
+    @GetMapping
+    public ResponseEntity<List<MovieDTO>> getMovieMongo(){
+        return ResponseEntity.ok().body( movieService.findAllMovies());
+    }
+
 }

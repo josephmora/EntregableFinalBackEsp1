@@ -1,8 +1,12 @@
 package com.dh.series.model;
 
+import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Set;
+
+@Data
 @Document
 public class Series {
 
@@ -10,41 +14,7 @@ public class Series {
     private String id;
     private String name;
     private String genre;
+    private Set<Season> seasons;
 
-    public Series() {
-        //No-args constructor
-    }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    @Override
-    public String toString() {
-        return "{\"Series\":{"
-            + "\"id\":\"" + id + "\""
-            + ", \"name\":\"" + name + "\""
-            + ", \"genre\":\"" + genre + "\""
-            + "}}";
-    }
 }

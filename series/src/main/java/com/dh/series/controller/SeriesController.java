@@ -46,4 +46,9 @@ public class SeriesController {
     public ResponseEntity<?> saveSeries(@RequestBody Series series) {
         return ResponseEntity.ok(service.saveSeries(series));
     }
+    @PostMapping("saveRabbit")
+    public ResponseEntity<String> saveSerieRabbit(@RequestBody Series serie) {
+        service.saveSeriesRabbit(serie);
+        return ResponseEntity.ok("The serie was sent to the queue");
+    }
 }

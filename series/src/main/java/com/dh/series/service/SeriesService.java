@@ -2,18 +2,29 @@ package com.dh.series.service;
 
 import java.util.List;
 
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.dh.series.model.Series;
 import com.dh.series.repository.SeriesRepository;
 
 @Service
 public class SeriesService {
+    //agrego loggeo
+    private final Logger LOG = LoggerFactory.getLogger(SeriesService.class);
+    @Value("$queue.serie.name") //trae el nombre de la cola del booststrap
+    private String serieQueue;
 
+    private final RabbitTemplate rabbitTemplate;
     private final SeriesRepository seriesRepository;
 
     @Autowired
-    public SeriesService(SeriesRepository seriesRepository) {
+    public SeriesService(RabbitTemplate rabbitTemplate, SeriesRepository seriesRepository) {
+        this.rabbitTemplate = rabbitTemplate;
         this.seriesRepository = seriesRepository;
     }
 
@@ -23,10 +34,18 @@ public class SeriesService {
     }
 
     public List<Series> findAll() {
+        LOG.info("se va a buscar lista de series");
         return seriesRepository.findAll();
     }
+
 
     public Series saveSeries(Series series) {
         return seriesRepository.save(series);
     }
+
+    //creo metodo para guardar en cola
+    public void saveSeriesRabbit(Series serie){
+        rabbitTemplate.convertAndSend(serieQueue, serie);
+    }
+
 }

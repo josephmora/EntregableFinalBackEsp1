@@ -1,5 +1,6 @@
 package com.digitalhouse.catalogservice.api.client;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
@@ -13,7 +14,10 @@ import com.digitalhouse.catalogservice.domain.model.MovieDTO;
 public interface MovieClient {
 
     @GetMapping("/movies/{genre}")
-    ResponseEntity<List<MovieDTO>> getMovieByGenre(@PathVariable(value = "genre") String genre);
+    //ResponseEntity<List<MovieDTO>> getMovieByGenre(@PathVariable(value = "genre") String genre);
+    List<MovieDTO> getMovieByGenre(@PathVariable(value = "genre") String genre);
+
+
 
     @GetMapping("/movies/withErrors/{genre}")
     ResponseEntity<List<MovieDTO>> getMovieByGenreWithThrowError(@PathVariable(value = "genre") String genre,

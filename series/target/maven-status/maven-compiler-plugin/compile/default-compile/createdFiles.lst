@@ -1,5 +1,0 @@
-com\dh\series\service\SeriesService.class
-com\dh\series\controller\SeriesController.class
-com\dh\series\model\Series.class
-com\dh\series\repository\SeriesRepository.class
-com\dh\series\SeriesApplication.class

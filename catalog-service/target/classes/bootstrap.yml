@@ -16,8 +16,11 @@ spring:
     active: dev
 
 queue:
+  serie:
+    name: serie
   movie:
-    name: Movie
+    name: movie
+
 
 eureka:
   client:

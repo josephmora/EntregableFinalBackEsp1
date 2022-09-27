@@ -1,8 +1,11 @@
 package com.digitalhouse.catalogservice.domain.model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document("tp_catalogo")
 public class MovieDTO {
 
-    private Long id;
+    private String id;
     private String name;
     private String genre;
     private String urlStream;
@@ -11,11 +14,11 @@ public class MovieDTO {
         //No-args constructor
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

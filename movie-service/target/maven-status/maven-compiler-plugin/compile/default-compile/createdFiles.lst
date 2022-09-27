@@ -1,6 +1,6 @@
 com\digitalhouse\movieservice\domain\repositories\MovieRepository.class
 com\digitalhouse\movieservice\config\RedisConfiguration.class
-com\digitalhouse\movieservice\config\RabbitMQConsumerConfig.class
+com\digitalhouse\movieservice\config\RabbitMQSenderConfig.class
 com\digitalhouse\movieservice\config\RabbitTemplateConfig.class
 com\digitalhouse\movieservice\MovieServiceApplication.class
 com\digitalhouse\movieservice\domain\models\MovieInfo.class
