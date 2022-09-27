@@ -8,7 +8,7 @@ spring:
       username: rootuser
       password: rootpass
       database: tp_final
-      port: 28017
+      port: 27017
       host: mongodb2
 
 info:
