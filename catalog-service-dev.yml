@@ -8,8 +8,8 @@ spring:
       username: rootuser
       password: rootpass
       database: tp_final
-      port: 27017
-      host: mongodb
+      port: 28017
+      host: mongodb2
 
 resilience4j:
   circuitbreaker:
