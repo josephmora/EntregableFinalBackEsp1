@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class RabbitMQSenderConfig {
 
-    @Value("${queue.movie.name}")
+    @Value("${queue.movie}")
     private String movieQueue;
 
     @Bean

@@ -17,7 +17,7 @@ import com.digitalhouse.movieservice.util.RedisUtils;
 
 @Service
 public class MovieService {
-    @Value("$queue.movie.name") //trae el nombre de la cola del booststrap
+    @Value("$queue.movie") //trae el nombre de la cola del booststrap
     private String movieQueue;
 
     private static final Logger LOG = LoggerFactory.getLogger(MovieService.class);

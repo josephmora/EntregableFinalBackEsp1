@@ -16,10 +16,10 @@ spring:
     active: dev
 
 queue:
-  serie:
-    name: serie
-  movie:
-    name: movie
+  movie: pelis
+  serie: series
+
+
 
 
 eureka:

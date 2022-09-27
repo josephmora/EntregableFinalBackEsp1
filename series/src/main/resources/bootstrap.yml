@@ -15,8 +15,7 @@ spring:
   profiles:
     active: dev
 queue:
-  serie:
-    name: serie
+  serie: series
 
 eureka:
   client:

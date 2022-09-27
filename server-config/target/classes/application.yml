@@ -10,7 +10,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/rodrigo-rodriguez-dh/clase-20
+          uri: https://github.com/josephmora/EntregableFinalBackEsp1
 eureka:
   client:
     service-url:

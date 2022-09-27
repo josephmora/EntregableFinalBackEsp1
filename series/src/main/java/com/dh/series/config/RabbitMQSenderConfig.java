@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitMQSenderConfig {
-    @Value("${queue.serie.name}")
+    @Value("${queue.serie}")
     private String serieQueue;
 
     @Bean

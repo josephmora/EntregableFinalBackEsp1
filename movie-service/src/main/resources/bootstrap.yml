@@ -16,8 +16,8 @@ spring:
     active: dev
 
 queue:
-  movie:
-    name: Movie
+  movie: pelis
+
 
 redis:
   host: redis

@@ -1,8 +1,14 @@
-com\digitalhouse\catalogservice\config\RabbitTemplateConfig.class
 com\digitalhouse\catalogservice\domain\model\MovieDTO.class
+com\digitalhouse\catalogservice\api\service\CatalogService.class
 com\digitalhouse\catalogservice\api\client\MovieClient.class
-com\digitalhouse\catalogservice\api\service\MovieService.class
+com\digitalhouse\catalogservice\api\repository\SerieRepository.class
+com\digitalhouse\catalogservice\domain\model\Season.class
+com\digitalhouse\catalogservice\domain\model\Chapter.class
+com\digitalhouse\catalogservice\config\RabbitTemplateConfig.class
+com\digitalhouse\catalogservice\domain\model\CatalogDTO.class
+com\digitalhouse\catalogservice\domain\model\SerieDTO.class
 com\digitalhouse\catalogservice\api\repository\MovieRepository.class
 com\digitalhouse\catalogservice\CatalogServiceApplication.class
 com\digitalhouse\catalogservice\api\controller\CatalogController.class
 com\digitalhouse\catalogservice\config\RabbitMQConsumerConfig.class
+com\digitalhouse\catalogservice\api\client\SerieClient.class

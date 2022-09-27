@@ -2,6 +2,7 @@ package com.digitalhouse.catalogservice.api.controller;
 
 import java.util.List;
 
+import com.digitalhouse.catalogservice.domain.model.CatalogDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,39 +12,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.digitalhouse.catalogservice.api.service.MovieService;
+import com.digitalhouse.catalogservice.api.service.CatalogService;
 import com.digitalhouse.catalogservice.domain.model.MovieDTO;
 
 @RestController
 @RequestMapping("/catalogs")
 public class CatalogController {
 
-    private final MovieService movieService;
+    private final CatalogService catalogService;
 
     @Autowired
-    public CatalogController(MovieService movieService) {
-        this.movieService = movieService;
+    public CatalogController(CatalogService catalogService) {
+        this.catalogService = catalogService;
     }
 
     @GetMapping("/{genre}")
-    public ResponseEntity<List<MovieDTO>> getGenre(@PathVariable String genre) {
+    public ResponseEntity<CatalogDTO> getGenre(@PathVariable String genre) {
 
-        return ResponseEntity.ok().body(movieService.findMovieByGenre(genre));
+        return ResponseEntity.ok().body(catalogService.findCatalogByGenre(genre));
     }
 
     @GetMapping("/withErrors/{genre}")
     public ResponseEntity<List<MovieDTO>> getGenre(@PathVariable String genre, @RequestParam("throwError") Boolean throwError) {
-        return movieService.findMovieByGenre(genre, throwError);
+        return catalogService.findMovieByGenre(genre, throwError);
     }
 
     @PostMapping("/save")
     public ResponseEntity<String> saveMovie(@RequestBody MovieDTO movieDTO) {
-        movieService.SaveMovie(movieDTO);
+        catalogService.SaveMovie(movieDTO);
         return ResponseEntity.ok("Se guardo una pelicula");
     }
     @GetMapping
     public ResponseEntity<List<MovieDTO>> getMovieMongo(){
-        return ResponseEntity.ok().body( movieService.findAllMovies());
+        return ResponseEntity.ok().body( catalogService.findAllMovies());
     }
 
 }

@@ -26,9 +26,9 @@ public class SeriesController {
         this.service = service;
     }
 
-    @GetMapping
-    public ResponseEntity<?> findAll() {
-        List<Series> seriesList = service.findAll();
+    @GetMapping ("/{genre}")
+    public ResponseEntity<?> findAll(@PathVariable(value = "genre") String genre) {
+        List<Series> seriesList = service.findByGenre(genre);
         return seriesList.isEmpty()
             ? new ResponseEntity<>(HttpStatus.NOT_FOUND)
             : ResponseEntity.ok(seriesList);

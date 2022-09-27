@@ -1,6 +1,7 @@
 package com.dh.series.service;
 
 import java.util.List;
+import java.util.Objects;
 
 
 import org.slf4j.Logger;
@@ -16,7 +17,7 @@ import com.dh.series.repository.SeriesRepository;
 public class SeriesService {
     //agrego loggeo
     private final Logger LOG = LoggerFactory.getLogger(SeriesService.class);
-    @Value("$queue.serie.name") //trae el nombre de la cola del booststrap
+    @Value("$queue.serie") //trae el nombre de la cola del booststrap
     private String serieQueue;
 
     private final RabbitTemplate rabbitTemplate;
@@ -36,6 +37,12 @@ public class SeriesService {
     public List<Series> findAll() {
         LOG.info("se va a buscar lista de series");
         return seriesRepository.findAll();
+    }
+    public List<Series> findByGenre(String genre) {
+
+        List<Series> series = seriesRepository.findByGenre(genre);
+
+        return series;
     }
 
 
