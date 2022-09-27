@@ -2,18 +2,15 @@ server:
   port: 8084
 
 spring:
-  datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1;
-    username: sa
-    password: sa
-  sql:
-    init:
-      data-locations: classpath:catalog.sql
-  jpa:
-    defer-datasource-initialization: true
-    hibernate:
-      ddl-auto: create-drop
+  data:
+    mongodb:
+      authentication-database: admin
+      username: rootuser
+      password: rootpass
+      database: tp_catalogo
+      port: 27017
+      host: mongodb
+      connectTimeout: 60000
 
 resilience4j:
   circuitbreaker:
