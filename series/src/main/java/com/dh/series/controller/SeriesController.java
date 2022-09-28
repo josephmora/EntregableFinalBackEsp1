@@ -27,20 +27,13 @@ public class SeriesController {
     }
 
     @GetMapping ("/{genre}")
-    public ResponseEntity<?> findAll(@PathVariable(value = "genre") String genre) {
+    public ResponseEntity<List<Series>> findAll(@PathVariable(value = "genre") String genre) {
         List<Series> seriesList = service.findByGenre(genre);
         return seriesList.isEmpty()
             ? new ResponseEntity<>(HttpStatus.NOT_FOUND)
             : ResponseEntity.ok(seriesList);
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<?> findById(@PathVariable String id) {
-        Series series = service.findById(id);
-        return Objects.isNull(series)
-            ? new ResponseEntity<>(HttpStatus.NOT_FOUND)
-            : ResponseEntity.ok(series);
-    }
 
     @PostMapping
     public ResponseEntity<?> saveSeries(@RequestBody Series series) {
